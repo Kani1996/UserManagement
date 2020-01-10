@@ -1,0 +1,18 @@
+<div id="homepage-content">
+  <div class="page-header" >
+    <div fxLayout="row" fxFlex="100">
+        <div fxLayoutAlign="start center" class="toolbar-label" fxFlex="30">
+            Profile Details
+          </div>
+    </div>
+  </div>
+
+  <div class="view-content">
+    <ag-grid-angular #agGrid style="width: 100%;height: 330px;"  class="ag-theme-material"
+        [rowData]="pageRowData" (cellClicked)="onCellClicked($event)" [columnDefs]="columnData" (gridReady)="onGridReady($event)">
+    </ag-grid-angular>
+  </div>
+</div>
+
+
+  

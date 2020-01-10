@@ -1,0 +1,14 @@
+#main-page {  
+   .page-header{
+    background-color: rgb(141, 35, 70);
+    position: sticky;
+    top: -0px;
+    height : 60px;
+    padding : 1px ;
+    box-shadow: 1px 3px 4px #131010;
+    z-index: 10000 !important;
+    .toolbar-label {
+      color: white
+    }
+}
+}

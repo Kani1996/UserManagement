@@ -1,0 +1,58 @@
+<div id="profile-page">
+  <div class="page-header" >
+    <div fxLayout="row" fxFlex="100">
+        <div fxLayoutAlign="start center" class="toolbar-label" fxFlex="30">
+            Personal Information
+          </div>
+    </div>
+  </div>
+
+  <div class="profilePage-content">
+      <mat-card class="Profile-card">
+          <form novalidate [formGroup]="createPersonForm" #createPerson="ngForm">
+            <div fxLayout="column" fxLayoutAlign="space-around" fxFlex="30">
+                <div fxLayout="column" fxLayoutAlign="space-around" fxLayoutGap="30px">
+                <div fxLayout="column" fxLayout.lt-sm="column" fxFlex="50" fxLayoutGap="20px" fxLayoutAlign="space-around"
+                    fxLayoutGap.lt-sm="20px">
+                    <div fxFlex="30">
+                        <mat-form-field class="full-box">
+                            <input tabindex="1" maxlength="50" matInput placeholder= "First Name"
+                                id="firstName" formControlName="firstName" required>
+                            <mat-error *ngIf="hasError('firstName', 'required')">First Name is required</mat-error>
+                            <mat-error *ngIf="hasError('firstName', 'pattern')">Name is not valid</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="30">
+                        <mat-form-field class="full-box">
+                            <input tabindex="2" matInput placeholder="Last Name"
+                                maxlength="100" id="lastName" formControlName="lastName">
+                            <mat-error *ngIf="hasError('lastName', 'pattern')">Name is not valid</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="30">
+                        <mat-form-field class="full-box">
+                            <input tabindex="3" matInput placeholder="E-mail" maxlength="30"
+                                formControlName="emailId">
+                            <mat-error *ngIf="hasError('emailId', 'pattern')">E-mail ID not valid
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="30">
+                        <mat-form-field class="full-box">
+                            <input tabindex="4" matInput placeholder="Mobile Number" maxlength="10"
+                                formControlName="mobileNumber">
+                            <mat-error *ngIf="hasError('mobileNumber', 'pattern')">Mobile number not valid</mat-error>
+                            <mat-error *ngIf="hasError('mobileNumber', 'minlength') && !hasError('mobileNumber','pattern')">Mobile number should be 10 digits</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div> 
+          </div>
+          <div class="Button-style">
+              <button tabindex="5" [disabled]="!createPersonForm.valid" class="margin-left-10 btn-success" (click)="savePerson(createPerson)"
+                  mat-stroked-button>Submit</button>
+          </div>
+            </div>
+       </form>
+      </mat-card>
+  </div>
+</div>
